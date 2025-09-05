@@ -66,7 +66,7 @@ class Slider {
       dot.addEventListener('click', () => this.goToSlide(index));
     });
     
-    // Автопрокрутка (опционально)
+
     this.startAutoPlay();
   }
   
@@ -99,7 +99,7 @@ class Slider {
   }
 }
 
-// Инициализация слайдера
+
 document.addEventListener('DOMContentLoaded', () => {
   const sliderContainer = document.querySelector('.hero__slider');
   if (sliderContainer) {
@@ -108,113 +108,56 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-document.addEventListener('DOMContentLoaded', function() {
+ document.addEventListener('DOMContentLoaded', function() {
             const testimonials = document.querySelector('.testimonials');
-            const testimonialItems = document.querySelectorAll('.testimonial');
             const dots = document.querySelectorAll('.testimonial-dot');
             const prevBtn = document.querySelector('.trusted__prev-btn');
             const nextBtn = document.querySelector('.trusted__next-btn');
+            const testimonialItems = document.querySelectorAll('.testimonial');
             
             let currentIndex = 0;
-            const itemsToShow = 3; // Number of testimonials visible at once
-            const itemWidth = testimonialItems[0].offsetWidth + 50; // Width + gap
+            let itemWidth = testimonialItems[0].offsetWidth + parseInt(getComputedStyle(testimonials).gap);
             
-            // Calculate total width needed for all testimonials
-            testimonials.style.width = `${testimonialItems.length * itemWidth}px`;
-            
-            // Function to update slider position
             function updateSlider() {
-                const maxIndex = Math.max(0, testimonialItems.length - itemsToShow);
-                currentIndex = Math.min(Math.max(0, currentIndex), maxIndex);
-                
                 testimonials.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
                 
-                // Update dots
+                
                 dots.forEach((dot, index) => {
-                    const dotIndex = parseInt(dot.getAttribute('data-index'));
-                    dot.classList.toggle('active', dotIndex === currentIndex);
+                    dot.classList.toggle('active', index === currentIndex);
                 });
                 
-                // Update button states
+            
                 prevBtn.classList.toggle('active', currentIndex > 0);
-                nextBtn.classList.toggle('active', currentIndex < maxIndex);
-                
-                // Update button colors based on active state
-                if (currentIndex > 0) {
-                    prevBtn.querySelector('path').setAttribute('fill', 'white');
-                } else {
-                    prevBtn.querySelector('path').setAttribute('fill', '#DC7000');
-                }
-                
-                if (currentIndex < maxIndex) {
-                    nextBtn.querySelector('path').setAttribute('fill', 'white');
-                } else {
-                    nextBtn.querySelector('path').setAttribute('fill', '#DC7000');
-                }
+                nextBtn.classList.toggle('active', currentIndex < dots.length - 1);
             }
             
-            // Next button click
-            nextBtn.addEventListener('click', function() {
-                const maxIndex = Math.max(0, testimonialItems.length - itemsToShow);
-                if (currentIndex < maxIndex) {
-                    currentIndex++;
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
                     updateSlider();
-                }
+                });
             });
             
-            // Previous button click
-            prevBtn.addEventListener('click', function() {
+            prevBtn.addEventListener('click', () => {
                 if (currentIndex > 0) {
                     currentIndex--;
                     updateSlider();
                 }
             });
             
-            // Dot click - FIXED
-            dots.forEach(dot => {
-                dot.addEventListener('click', function() {
-                    currentIndex = parseInt(this.getAttribute('data-index'));
+            nextBtn.addEventListener('click', () => {
+                if (currentIndex < dots.length - 1) {
+                    currentIndex++;
                     updateSlider();
-                });
+                }
             });
             
-            // Handle window resize
-            window.addEventListener('resize', function() {
-                // Recalculate item width on resize
-                const newItemWidth = testimonialItems[0].offsetWidth + 50;
-                testimonials.style.transform = `translateX(-${currentIndex * newItemWidth}px)`;
-                testimonials.style.width = `${testimonialItems.length * newItemWidth}px`;
-            });
-            
-            // Initialize slider
+
             updateSlider();
             
-            // Auto slide (optional)
-            let autoSlideInterval = setInterval(() => {
-                const maxIndex = Math.max(0, testimonialItems.length - itemsToShow);
-                if (currentIndex < maxIndex) {
-                    currentIndex++;
-                } else {
-                    currentIndex = 0;
-                }
+      
+            window.addEventListener('resize', function() {
+                itemWidth = testimonialItems[0].offsetWidth + parseInt(getComputedStyle(testimonials).gap);
                 updateSlider();
-            }, 5000);
-            
-            // Pause auto slide on hover
-            const sliderContainer = document.querySelector('.testimonials-slider');
-            sliderContainer.addEventListener('mouseenter', () => {
-                clearInterval(autoSlideInterval);
-            });
-            
-            sliderContainer.addEventListener('mouseleave', () => {
-                autoSlideInterval = setInterval(() => {
-                    const maxIndex = Math.max(0, testimonialItems.length - itemsToShow);
-                    if (currentIndex < maxIndex) {
-                        currentIndex++;
-                    } else {
-                        currentIndex = 0;
-                    }
-                    updateSlider();
-                }, 5000);
             });
         });
