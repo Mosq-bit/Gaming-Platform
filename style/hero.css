@@ -1,0 +1,359 @@
+.hero {
+    max-width: 1350px;
+    padding:0 10px 144px;
+    margin: 0 auto;
+}
+
+.hero__wrapper {
+
+    display: flex;
+    align-items: center;
+    gap: 166px;
+
+    margin-left: 55px;
+}
+
+.hero__content {
+    max-width: 414px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.breadcrumbs {
+    display: flex;
+    gap: 10px;
+}
+
+.breadcrumbs a {
+    color: var(--white);
+}
+
+
+
+.current {
+    color: var(--orange);
+}
+
+.hero__title {
+    margin-top: 13px;
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.hero__text {}
+
+.hero__btn {
+    max-width: 176px;
+    margin-top: 32px;
+    padding: 11px 18px 16px 19px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    color: var(--white);
+    border-radius: 40px;
+    background: linear-gradient(113deg, #fa8305 0%, #fb9e3c 100%);
+    transition: all .3s ease-in;
+}
+
+.hero__btn:hover {
+    transform: scale(1.1);
+}
+
+.hero__slider {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+
+  
+}
+
+.slider-nav {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    display: flex;
+    align-items: center;
+    gap: 29px;
+    background: #333;
+    padding: 27px 30px;
+    z-index: 10;
+}
+
+.nav-btn {
+    cursor: pointer;
+    width: 12px;
+    height: 12px;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pagination-dot {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pagination-dot.active {
+    transform: scale(1.2);
+}
+
+/* Адаптивность */
+@media (max-width: 1440px) {
+    .hero {
+        margin-left: 80px;
+        padding-bottom: 120px;
+    }
+    
+    .hero__wrapper {
+        gap: 120px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .hero {
+        margin-left: 60px;
+        padding-bottom: 100px;
+    }
+    
+    .hero__wrapper {
+        gap: 80px;
+    }
+    
+    .hero__slider {
+        height: 450px;
+    }
+    
+    .slider-nav {
+        padding: 20px 25px;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero {
+        margin-left: 40px;
+        padding-bottom: 80px;
+    }
+    
+    .hero__wrapper {
+        gap: 60px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .hero__content {
+        max-width: 100%;
+        order: 2;
+    }
+    
+    .hero__slider {
+        order: 1;
+        width: 100%;
+        height: 400px;
+    }
+    
+    .hero__title {
+        font-size: 28px;
+        margin-top: 20px;
+    }
+    
+    .slider-nav {
+        padding: 15px 20px;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        margin-left: 20px;
+        margin-right: 20px;
+        padding-bottom: 60px;
+    }
+    
+    .hero__wrapper {
+        gap: 40px;
+    }
+    
+    .hero__slider {
+        height: 350px;
+    }
+    
+    .hero__title {
+        font-size: 24px;
+    }
+    
+    .hero__btn {
+        max-width: 160px;
+        padding: 10px 16px 14px 16px;
+        gap: 12px;
+        margin-top: 25px;
+    }
+    
+    .slider-nav {
+        padding: 12px 16px;
+        gap: 12px;
+        left: 10px;
+        bottom: 10px;
+    }
+    
+    .nav-btn {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero {
+        margin-left: 15px;
+        margin-right: 15px;
+        padding-bottom: 40px;
+    }
+    
+    .hero__wrapper {
+        gap: 30px;
+    }
+    
+    .hero__slider {
+        height: 300px;
+    }
+    
+    .hero__title {
+        font-size: 22px;
+        margin-top: 15px;
+    }
+    
+    .hero__content {
+        gap: 20px;
+    }
+    
+    .hero__btn {
+        max-width: 140px;
+        padding: 8px 14px 12px 14px;
+        gap: 8px;
+        margin-top: 20px;
+        font-size: 14px;
+    }
+    
+    .slider-nav {
+        padding: 10px 14px;
+        gap: 10px;
+        left: 8px;
+        bottom: 8px;
+    }
+    
+    .nav-btn {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .breadcrumbs {
+        font-size: 14px;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-bottom: 30px;
+    }
+    
+    .hero__slider {
+        height: 250px;
+    }
+    
+    .hero__title {
+        font-size: 20px;
+    }
+    
+    .hero__btn {
+        max-width: 130px;
+        padding: 7px 12px 10px 12px;
+        font-size: 13px;
+    }
+    
+    .slider-nav {
+        padding: 8px 12px;
+        gap: 8px;
+    }
+    
+    .pagination {
+        gap: 8px;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 360px) {
+    .hero__slider {
+        height: 220px;
+    }
+    
+    .hero__title {
+        font-size: 18px;
+    }
+    
+    .hero__btn {
+        max-width: 120px;
+        padding: 6px 10px 9px 10px;
+        font-size: 12px;
+    }
+    
+    .slider-nav {
+        padding: 6px 10px;
+        gap: 6px;
+    }
+}
+
+/* Дополнительные улучшения для тач-устройств */
+@media (hover: none) and (pointer: coarse) {
+    .hero__btn:hover {
+        transform: none;
+    }
+    
+    .nav-btn,
+    .pagination-dot {
+        min-width: 44px;
+        min-height: 44px;
+    }
+}
+
+
+@media (max-height: 500px) and (orientation: landscape) {
+     .hero__wrapper {
+        flex-direction: row;
+        gap: 40px;
+    }
+    
+    .hero__content {
+        max-width: 50%;
+    }
+}

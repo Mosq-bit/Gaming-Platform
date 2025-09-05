@@ -1,0 +1,268 @@
+.team {
+    padding: 148px 157px;
+}
+
+.team__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 53px;
+}
+
+.team__title {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.team__cards {
+    display: flex;
+    align-items: center;
+    
+    gap: 28px;
+}
+
+.team__card {
+    padding: 35px 70px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    background-color: #1C140F;
+    border-radius: 20px;
+}
+
+
+@media (max-width: 1440px) {
+    .team {
+        padding: 120px 100px;
+    }
+    
+    .team__wrapper {
+        gap: 45px;
+    }
+
+}
+
+@media (max-width: 1200px) {
+    .team {
+        padding: 100px 80px;
+    }
+    
+    .team__wrapper {
+        gap: 40px;
+    }
+    
+    .team__cards {
+        gap: 20px;
+    }
+    
+    .team__card {
+        padding: 25px 40px 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .team {
+        padding: 80px 40px;
+    }
+    
+    .team__wrapper {
+        gap: 35px;
+    }
+    
+    .team__cards {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 25px;
+    }
+    
+    .team__card {
+        flex: 1;
+        min-width: calc(50% - 25px);
+        max-width: 300px;
+        padding: 25px 30px 20px;
+    }
+    
+    .team__title {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 768px) {
+    .team {
+        padding: 60px 30px;
+    }
+    
+    .team__wrapper {
+        gap: 30px;
+    }
+    
+    .team__cards {
+        gap: 20px;
+    }
+    
+    .team__card {
+        min-width: calc(50% - 20px);
+        padding: 20px 25px 15px;
+        border-radius: 15px;
+    }
+    
+    .team__title {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .team {
+        padding: 50px 20px;
+    }
+    
+    .team__wrapper {
+        gap: 25px;
+    }
+    
+    .team__cards {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+    
+    .team__card {
+        min-width: 100%;
+        max-width: 100%;
+        padding: 25px 20px 20px;
+    }
+    
+    .team__title {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .team {
+        padding: 40px 15px;
+    }
+    
+    .team__wrapper {
+        gap: 20px;
+    }
+    
+    .team__card {
+        padding: 20px 15px 15px;
+        border-radius: 12px;
+        gap: 8px;
+    }
+    
+    .team__title {
+        font-size: 16px;
+    }
+}
+
+
+@media (max-width: 360px) {
+    .team {
+        padding: 30px 10px;
+    }
+    
+    .team__wrapper {
+        gap: 15px;
+    }
+    
+    .team__card {
+        padding: 15px 12px 12px;
+        border-radius: 10px;
+    }
+    
+    .team__title {
+        font-size: 15px;
+    }
+}
+
+
+@media (max-width: 992px) and (orientation: landscape) {
+    .team__cards {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .team__card {
+        min-width: calc(33.333% - 20px);
+        max-width: calc(33.333% - 20px);
+    }
+}
+
+
+@media (hover: none) and (pointer: coarse) {
+    .team__card {
+        transition: transform 0.2s ease;
+    }
+    
+    .team__card:active {
+        transform: scale(0.98);
+    }
+}
+
+
+@media print {
+    .team {
+        padding: 50px 20px !important;
+        background: white !important;
+    }
+    
+    .team__card {
+        background: white !important;
+        border: 1px solid #ccc;
+        color: black !important;
+    }
+}
+
+
+.team__card-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.team__card-name {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.team__card-position {
+    font-size: 14px;
+    color: #ccc;
+}
+
+@media (max-width: 768px) {
+    .team__card-image {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 12px;
+    }
+    
+    .team__card-name {
+        font-size: 16px;
+    }
+    
+    .team__card-position {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .team__card-image {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 10px;
+    }
+    
+    .team__card-name {
+        font-size: 14px;
+    }
+    
+    .team__card-position {
+        font-size: 12px;
+    }
+}
