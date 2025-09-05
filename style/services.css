@@ -1,7 +1,7 @@
 .services {
     padding: 93px 85px;
     background: linear-gradient(rgba(0, 0, 0, 0.54), rgba(0, 0, 0, 0.65)),
-        url('/assets/game__bg.png') center/cover;
+        url('/Gaming-Platform/assets/game__bg.png') center/cover;
     backdrop-filter: blur(4px);
     overflow: hidden;
 }
@@ -270,4 +270,5 @@
 
 .services__item * {
     transition: all 0.3s ease;
+
 }
